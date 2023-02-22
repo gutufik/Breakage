@@ -16,7 +16,7 @@ namespace Breakage.Data
             return BreakageMishaEntities.GetContext().Clients.ToList();
         }
 
-        public static List<Service> GetService()
+        public static List<Service> GetServices()
         {
             return BreakageMishaEntities.GetContext().Services.ToList();
         }

@@ -111,6 +111,7 @@ namespace Breakage.Pages
             Clients = DataAccess.GetClients();
             lvClients.ItemsSource = Clients;
             lvClients.Items.Refresh();
+            SetPageNumbers();
         }
 
         private void lvClients_SelectionChanged(object sender, SelectionChangedEventArgs e)

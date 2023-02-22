@@ -48,9 +48,27 @@
         <TextBlock Text="Дата регистрации" Grid.Column="2" Grid.Row="1"/>
         <DatePicker IsEnabled="False" SelectedDate="{Binding Client.RegistrationDate}" Grid.Column="3" Grid.Row="1"/>
 
+        <ListView x:Name="lvServices" ItemsSource="{Binding Client.ClientServices}"
+                  SelectionChanged="lvServices_SelectionChanged"
+                  Grid.Column="2" Grid.Row="2" Grid.RowSpan="3">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <Run Text="{Binding StartTime, ConverterCulture=ru}"/>
+                        <Run Text="{Binding Service.Title}"/>
+                    </TextBlock>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ComboBox Name="cbService" Grid.Column="2" Grid.Row="5"
+                  ItemsSource="{Binding Services}"
+                  IsEditable="True"
+                  TextBoxBase.TextChanged="cbService_TextChanged"
+                  SelectionChanged="cbService_SelectionChanged"/>
+
         <Image x:Name="ClientImage" Source="{Binding Client.Photo}" 
-               Grid.Column="2" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="2" />
-        <Button x:Name="btnChangePhoto" Content="Изменить фото" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Click="btnChangePhoto_Click"/>
+               Grid.Column="3" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="2" />
+        <Button x:Name="btnChangePhoto" Content="Изменить фото" Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="2" Click="btnChangePhoto_Click"/>
 
         <Button x:Name="btnDelete" Content="Удалить" Grid.Row="6" Grid.Column="1" Click="btnDelete_Click"/>
         <Button x:Name="btnSave" Content="Сохранить" Grid.Row="6" Grid.Column="2" Click="btnSave_Click"/>
