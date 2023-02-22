@@ -24,6 +24,17 @@ namespace Breakage
         {
             InitializeComponent();
             frmMain.NavigationService.Navigate(new Pages.ClientsListPage());
+            frmMain.Navigated += FrmMain_Navigated;
+        }
+
+        private void FrmMain_Navigated(object sender, NavigationEventArgs e)
+        {
+            btnGoBack.Visibility = frmMain.NavigationService.CanGoBack ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        private void btnGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            frmMain.NavigationService.GoBack();       
         }
     }
 }

@@ -95,6 +95,7 @@
     <Compile Include="Data\Client.cs">
       <DependentUpon>BreakageModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\ClientPartial.cs" />
     <Compile Include="Data\ClientService.cs">
       <DependentUpon>BreakageModel.tt</DependentUpon>
     </Compile>
