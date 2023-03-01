@@ -51,8 +51,11 @@ namespace Breakage.Pages
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            DataAccess.DeleteClient(Client);
-            NavigationService.GoBack();
+            if (MessageBox.Show("Вы действительно хотите удалить клиента?", "Предупреждение", MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)
+            {
+                DataAccess.DeleteClient(Client);
+                NavigationService.GoBack();
+            }
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
@@ -70,7 +73,7 @@ namespace Breakage.Pages
 
             if (stringBuilder.Length > 0)
             {
-                MessageBox.Show(stringBuilder.ToString());
+                MessageBox.Show(stringBuilder.ToString(), "Ошибка",MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 

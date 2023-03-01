@@ -80,7 +80,7 @@ namespace Breakage.Pages
             }
             else
             {
-                _page = int.Parse(text);
+                _page = int.Parse(text) - 1;
             }
             Filter(false);
         }
@@ -109,8 +109,9 @@ namespace Breakage.Pages
         private void DataAccess_RefreshList()
         {
             Clients = DataAccess.GetClients();
-            lvClients.ItemsSource = Clients;
-            lvClients.Items.Refresh();
+            ClientsForFilters = Clients.ToList();
+            Genders[0].Clients = Clients;
+            Filter(true);
             SetPageNumbers();
         }
 
